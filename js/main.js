@@ -13,6 +13,44 @@ $( document ).ready(function() {
         greatest: 0,
         total: 0
     };
+	
+	$(".btn-sm").click(function() {
+        $("#login-form").hide();
+      });
+//hide login form when login button is clicked
+
+
+ 	$('.view-details').on('click',function(event){ //when the View Details button is clicked
+   		console.log(event);
+		var targetElement = event.target;
+		var container = targetElement.parentElement.parentElement; //find the grandparent element of the container
+		$(container).find('.details').each(function(index,el) { //find the tag labeled details for this container
+			if ($(el).is(":visible")){ 
+				$(el).fadeOut(); //snazzy transition
+				$('.teaser').show(); //show teaser when full desctiption is hidden
+				targetElement.innerText = "View Details"; //change button text to View Details
+			} else {
+				$(el).fadeIn();//snazzy transition
+				$('.teaser').hide(); //hide teaser when full description is showing
+				targetElement.innerText = "Hide Details";//change button text to Hide Details
+			}
+		});
+		});
+		
+	var voteButton = document.getElementById(".vote");
+	voteButton.addEventListener.one("click", function(event){ //event listener for vote button, run this only once
+	});
+      
+   
+ 
+
+	
+	
+	
+    });
+	
+
+
     // Place all your Javascript code inside this "document ready" function so
     // it does not run until the DOM is ready for Javascript manipulation.
 
@@ -44,4 +82,4 @@ $( document ).ready(function() {
     //      4. Determine the respective percentages (out of 100) for each progress bar.
     //      5. Modify the `width` attribute on each progress bar to set the updated percentage.
 
-});
+
